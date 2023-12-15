@@ -19,3 +19,8 @@ def beatify_first_analyze(data: List[tuple]):
         return_data[name] = {"rate": item[1], "account_id": item[0]}
 
     return return_data
+
+
+def beatify_dict(sl):
+    for k, v in sl:
+        print(v, v.T)
