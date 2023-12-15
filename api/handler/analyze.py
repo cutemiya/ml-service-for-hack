@@ -7,9 +7,11 @@ from pydantic import BaseModel
 from repository.reposiotry import Repository
 from service.service import Service
 
+from utils.base import dbname, user, password, host, port
+
 base_router = APIRouter()
 
-conn = psycopg2.connect(dbname='production', user='postgres', password='root', host='localhost', port=5431)
+conn = psycopg2.connect(dbname=dbname, user=user, password=password, host=host, port=port)
 cur = conn.cursor()
 
 repository = Repository(cur)

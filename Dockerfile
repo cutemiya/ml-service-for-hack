@@ -1,12 +1,12 @@
-FROM python:3.10-slim-buster
+FROM python:3.8-slim-buster
 
 WORKDIR /app
 
-COPY requirements.txt requirements.txt
+COPY ./ml-service-for-hack/requirements.txt requirements.txt
 
 RUN pip3 install -r requirements.txt
 
-COPY . .
+COPY ./ml-service-for-hack .
 
 CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "1488"]
 

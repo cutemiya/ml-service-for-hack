@@ -7,7 +7,9 @@ from sklearn.metrics.pairwise import cosine_similarity
 import numpy as np
 import pandas as pd
 
-conn = psycopg2.connect(dbname='production', user='postgres', password='root', host='localhost', port=5431)
+from utils.base import dbname, user, password, host, port
+
+conn = psycopg2.connect(dbname=dbname, user=user, password=password, host=host, port=port)
 
 
 def generate_user_tags():

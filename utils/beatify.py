@@ -2,7 +2,9 @@ from typing import List
 
 import psycopg2
 
-conn = psycopg2.connect(dbname='production', user='postgres', password='root', host='localhost', port=5431)
+from utils.base import dbname, port, host, password, user
+
+conn = psycopg2.connect(dbname=dbname, user=user, password=password, host=host, port=port)
 cur = conn.cursor()
 
 
