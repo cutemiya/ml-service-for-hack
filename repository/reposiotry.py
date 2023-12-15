@@ -9,7 +9,7 @@ class Repository:
 
     def select_all_tags(self) -> typing.List:
         try:
-            self._cur.execute("select * from user_tags")
+            self._cur.execute("select * from usertag")
             return self._cur.fetchall()
         except Exception as e:
             print(e)

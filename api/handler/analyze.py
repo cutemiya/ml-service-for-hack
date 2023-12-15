@@ -5,15 +5,16 @@ from fastapi import APIRouter
 from pydantic import BaseModel
 
 from data.generate_and_analyze_cvs import get_all_statistics_by_user_tags, get_analyze_events
+from repository.migrations.run import run
 from repository.reposiotry import Repository
 from service.service import Service
-from utils.beatify import beatify_dict
 
 base_router = APIRouter()
 
 from utils.base import dbname, user, password, host, port
 
 conn = psycopg2.connect(dbname=dbname, user=user, password=password, host=host, port=port)
+run(conn)
 cur = conn.cursor()
 
 repository = Repository(cur)

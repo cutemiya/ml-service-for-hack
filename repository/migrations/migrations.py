@@ -1,26 +1,27 @@
-user_info = '''
-create table if not exists user_info(
-    Id serial primary key,
-    first_name text not null,
-    last_name text not null,
-    partinomyc text not null,
-    bd timestamp not null,
-    city text not null,
-    account_id int references accounts(id)
-);'''
+events = '''
+create table if not exists event (
+    id serial primary key,
+    title text not null,
+    description text not null,
+    company_id int references CompanyDetails(id)
+);
+'''
 
 user_tags = '''
-create table if not exists user_tags (
+create table if not exists usertag (
     id serial primary key,
     tag text not null,
-    account_id int references accounts(id)
+    account_id int references account(id)
 );
 '''
 
 user_events = '''
-create table if not exists user_events (
+CREATE TABLE IF NOT EXISTS user_events (
     id serial primary key,
-    tag text not null,
-    account_id int references accounts(id)
+    event_id int references event(id),
+    account_id int references account(id),
+    place int default 0,
+    status int default 0 -- 0 - идет, 1 - прошло
 );
 '''
+
