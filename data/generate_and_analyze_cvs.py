@@ -62,13 +62,13 @@ def get_analyze_events(account_id: int):
     description = ""
 
     for i in ids:
-        cur.execute(f"select title, description from event where id={i[0]}")
+        cur.execute(f'select title, description from "Event" where id={i[0]}')
         res = cur.fetchall()[0]
 
         titles += f" {res[0]}"
         description += f" {res[1]}"
 
-    cur.execute('select id, title, description from event')
+    cur.execute('select id, title, description from "Event"')
     all_ev = cur.fetchall()
 
     for item in all_ev:
