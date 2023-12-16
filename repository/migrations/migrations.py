@@ -1,5 +1,5 @@
 user_tags = '''
-create table if not exists usertag (
+create table if not exists UserTag (
     id serial primary key,
     tag text not null,
     account_id int references "Account"(id)
