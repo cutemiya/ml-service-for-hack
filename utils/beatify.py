@@ -12,7 +12,7 @@ def beatify_first_analyze(data: List[tuple]):
     return_data = dict()
 
     for item in data:
-        cur.execute(f"select first_name, middle_name, last_name from userdetails where account_id = {item[0]}")
+        cur.execute(f'select first_name, middle_name, last_name from "UserDetails" where account_id = {item[0]}')
         response = cur.fetchone()
         name = f'{response[0]} {response[1]} {response[2]}'
 
