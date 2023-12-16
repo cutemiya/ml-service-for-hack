@@ -3,7 +3,7 @@ create table if not exists event (
     id serial primary key,
     title text not null,
     description text not null,
-    company_id int references CompanyDetails(id)
+    company_id int references public.CompanyDetails(id)
 );
 '''
 
