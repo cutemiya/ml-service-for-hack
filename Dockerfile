@@ -8,6 +8,6 @@ RUN pip3 install -r requirements.txt
 
 COPY ./ml-service-for-hack .
 
-CMD ["uvicorn", "main:app", "--port", "1488"]
+CMD ["uvicorn", "main:app", "--host", "*", "--port", "1488"]
 
 EXPOSE 1488
