@@ -16,7 +16,7 @@ def generate_user_tags():
     with conn:
         with conn.cursor() as cursor:
             cursor.execute("""
-            select d.account_id, t.title as tag from "UserTag" t
+            select d.account_id, t.title as tag from "usertag" t
             right join "UserDetails" d on t.account_id = d.account_id
             """)
 
