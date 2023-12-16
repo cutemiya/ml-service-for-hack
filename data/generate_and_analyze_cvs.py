@@ -16,8 +16,8 @@ def generate_user_tags():
     with conn:
         with conn.cursor() as cursor:
             cursor.execute("""
-            select d.account_id, t.title as tag from usertag t
-            right join userdetails d on t.account_id = d.account_id
+            select d.account_id, t.title as tag from "UserTag" t
+            right join "UserDetails" d on t.account_id = d.account_id
             """)
 
             with open("data/user_tags.csv", "w", newline='') as csv_file:
@@ -53,7 +53,7 @@ def get_all_statistics_by_user_tags():
 def get_analyze_events(account_id: int):
     cur = conn.cursor()
     cur.execute(
-        f"select e.id from event e join user_events u on e.id = u.event_id where u.account_id = {account_id} and u.status = 1");
+        f'select e.id from "Event" e join user_events u on e.id = u.event_id where u.account_id = {account_id} and u.status = 1');
     ids = cur.fetchall()
 
     titles_dict, description_dict = dict(), dict()
